@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -28,5 +27,12 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.custom-nav {
+  position: fixed;
+  nav {
+    box-shadow: none;
   }
 }
