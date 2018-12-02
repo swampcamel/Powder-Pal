@@ -1,5 +1,9 @@
 import React from 'react';
+
 import './Welcome.scss'
+
+import HeroContent from './HeroContent';
+
 
 class Welcome extends React.Component {
   constructor(props) {
@@ -8,7 +12,9 @@ class Welcome extends React.Component {
 
   render() {
     return (
-      <div className="welcome-wrapper">Welcome</div>
+      <div className="welcome-wrapper">
+        <HeroContent/>
+      </div>
     )
   }
 }

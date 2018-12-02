@@ -1,0 +1,35 @@
+.hero-content {
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  border: 1px solid red;
+}
+
+.hero-content-blurb, .hero-content-search {
+
+  color: white;
+
+}
+
+.hero-content-blurb {
+  background-color: #0086E0;
+    border-radius: 42px;
+    padding: 2%;
+}
+
+.hero-content-search {
+  margin-top: 32px;
+  background-color: #45A5E5;
+  display: flex;
+  .search-icon, .search-input {
+    border: solid 1px blue;
+    margin: 0;
+    padding: 0;
+    padding: 2%;
+  }
+  .search-input {
+    width: 100%;
+  }
+}

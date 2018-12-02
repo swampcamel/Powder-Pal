@@ -5,12 +5,18 @@ import App from './components/App';
 import { HashRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import appReducer from './reducers/appReducer';
 
+const store = createStore(appReducer);
+
+let unsubscribe = store.subscribe(() =>
+console.log(store.getState())
+)
 
 const render = (Component) => {
   ReactDOM.render(
   <HashRouter>
-    <Provider>
+    <Provider store={store}>
       <App />
     </Provider>
   </HashRouter>,
