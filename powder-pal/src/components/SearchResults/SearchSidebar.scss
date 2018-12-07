@@ -1,9 +1,10 @@
 .search-sidebar {
   background-color: #0086E0;
-  height: 100%;
+  height: 100vh;
   width: 500px;
   padding-top: 100px;
   color: white;
+  position: absolute;
 }
 
 .location-query {

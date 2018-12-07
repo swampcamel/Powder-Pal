@@ -12,6 +12,8 @@ function SearchResults() {
       <div className="results-wrapper">
         <TopFeature/>
         <Resort/>
+        <Resort/>
+        <Resort/>
       </div>
     </div>
   )
