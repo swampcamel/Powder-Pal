@@ -7,8 +7,36 @@
   position: absolute;
 }
 
+.sidebar-title {
+  margin: 24px 0;
+}
+
+
+.mat-input {
+  margin-left: 20%;
+}
+
+.mat-input-label, .active .mat-input-label {
+  color: white !important;
+
+}
+
 .location-query {
-  padding-left: 5%;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  span {
+    font-weight: bolder;
+    padding-right: 4%;
+  }
+  span:hover {
+      text-decoration: underline;
+      cursor: pointer;
+  }
+  .arrow {
+    font-size: 18px;
+  }
 }
 
 .sidebar-pad {
