@@ -32,3 +32,5 @@ Powder Pal is an interface that gives you real-time views of snow reports for sk
 - Liftie.info npm package
 - Ski Maps API
 - TBD
+
+Good morning!
