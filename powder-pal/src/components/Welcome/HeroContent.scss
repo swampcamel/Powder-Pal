@@ -8,9 +8,10 @@
 }
 
 .hero-content-blurb, .hero-content-search {
-
   color: white;
-
+  a {
+    color: white;
+  }
 }
 
 .hero-content-blurb {
@@ -24,10 +25,10 @@
   margin-top: 32px;
   background-color: #45A5E5;
   display: flex;
+  align-items: center;
   .search-icon, .search-input {
     border: solid 1px blue;
     margin: 0;
-    padding: 0;
     padding: 2%;
   }
   .search-input {

@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 
 import './App.scss';
 
 import Welcome from './Welcome/Welcome';
+import SearchResults from './SearchResults/SearchResults';
+
 import MainFooter from './MainFooter';
 import SecondaryFooter from './SecondaryFooter';
-
 import {Navbar, NavItem} from 'react-materialize';
 
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <div className="App">
@@ -21,7 +26,10 @@ class App extends Component {
             <NavItem href='components.html'>LOG IN</NavItem>
           </Navbar>
         </div>
-        <Welcome/>
+        <Switch>
+          <Route exact path='/' render={() => <Welcome/>} />
+          <Route path='/query' render={() => <SearchResults/>} />
+        </Switch>
         <MainFooter/>
         <SecondaryFooter/>
       </div>
