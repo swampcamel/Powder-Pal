@@ -1,0 +1,20 @@
+.resort {
+  display: flex;
+  width: 100%;
+  border: 2px #9BD6F0 solid;
+  border-radius: 28px;
+  width: 90%;
+  margin: 24px auto;
+  padding: 2%;
+  ul {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    li {
+      padding: 0 8px;
+    }
+  }
+  .resort-col {
+    width: 33%;
+  }
+}
