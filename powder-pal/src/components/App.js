@@ -6,6 +6,7 @@ import './App.scss';
 
 import Welcome from './Welcome/Welcome';
 import SearchResults from './SearchResults/SearchResults';
+import ResortView from './ResortView/ResortView';
 
 import MainFooter from './MainFooter';
 import SecondaryFooter from './SecondaryFooter';
@@ -29,6 +30,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() => <Welcome/>} />
           <Route path='/query' render={() => <SearchResults/>} />
+          <Route path ='/resort' render={() => <ResortView/>} />
         </Switch>
         <MainFooter/>
         <SecondaryFooter/>
