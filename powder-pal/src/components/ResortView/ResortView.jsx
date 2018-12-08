@@ -1,12 +1,18 @@
 import React from 'react';
+import './ResortView.scss';
 
 import ResortDetailSidebar from './ResortDetailSidebar';
+import TopFeature from './../SearchResults/TopFeature';
+
 
 function ResortView() {
   return(
-    <div>
+    <div className="resort-wrapper">
       <ResortDetailSidebar/>
-      <p>Resort View</p>
+      <div className="detail-wrapper">
+        <TopFeature/>
+      </div>
+
     </div>
   )
 }

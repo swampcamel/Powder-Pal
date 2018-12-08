@@ -3,7 +3,7 @@ import './ResortDetailSidebar.scss'
 
 function ResortDetailSidebar() {
   return(
-    <div>Resort Details</div>
+    <div className='detail-sidebar'>Resort Details</div>
   );
 }
 
