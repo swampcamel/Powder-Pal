@@ -75,7 +75,21 @@ export function fetchResortPlacesData(dispatch) {
     error => console.log("FAIL", error)
   ).then(function(placesData) {
     if(placesData.candidates) {
+      fetchResortPlacesPhoto(placesData.candidates[0].photos[0].photoreference, dispatch)
       dispatch(getPlaceInfo(placesData.candidates));
     }
   });
+}
+
+export function fetchResortPlacesPhoto(photoId, dispatch) {
+  return fetch('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAA7l6BOtpmklpsR15Oov-pM0rZgmCVpRFUwsgwldjpYmFnh2TF6R-rRVu2YCA5HmWKMrS7_If2J7zxBtauDCoSsPoj4RJdm3L0AzagOy4pncmH30_axiKB3T2-sdzBtBFPEhABpa-x53axODzIVL30qcHvGhSc2mxTLw5KMiCoI9qD6a--kRl3Dg&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE').then(
+    response => response.blob(),
+    error => console.log("FAIL", error)
+  ).then(function(image) {
+    if (image) {
+      let blobUrl = URL.createObjectURL(image);
+      console.log(blobUrl);
+
+    }
+  })
 }
