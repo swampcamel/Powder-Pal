@@ -1,22 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {fetchResorts} from './../../actions';
+
 import './SearchResults.scss';
 
 import SearchSidebar from './SearchSidebar';
 import TopFeature from './TopFeature';
 import Resort from './Resort';
 
-function SearchResults() {
-  return(
-    <div className="search-wrapper">
-      <SearchSidebar/>
-      <div className="results-wrapper">
-        <TopFeature/>
-        <Resort/>
-        <Resort/>
-        <Resort/>
-      </div>
-    </div>
-  )
-};
+class SearchResults extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-export default SearchResults;
+  componentWillMount() {
+    this.props.dispatch(fetchResorts());
+  }
+  render() {
+    console.log(this.props)
+    return(
+      <div className="search-wrapper">
+        <SearchSidebar/>
+        <div className="results-wrapper">
+          <TopFeature/>
+          <Resort/>
+          <Resort/>
+          <Resort/>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+const mapStateToProps = state => {
+  let data;
+  const resort = state;
+  if(!state.isFetching) {
+    data = {
+      resorts: state.resorts
+    };
+  } else {
+      data = {
+
+      }
+    }
+  return {
+   data
+  }
+}
+
+export default connect(mapStateToProps)(SearchResults);

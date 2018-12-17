@@ -24,7 +24,7 @@ class App extends Component {
         <div className="navbar-fixed custom-nav">
           <Navbar className="transparent" brand='POWDER PAL' right>
             <NavItem href='components.html'>WHAT IS THIS</NavItem>
-            <NavItem onClick={() => this.props.dispatch(fetchResorts())}>SIGN UP</NavItem>
+            <NavItem onClick={() => console.log("Yes")}>SIGN UP</NavItem>
             <NavItem href='components.html'>LOG IN</NavItem>
           </Navbar>
         </div>
@@ -48,10 +48,14 @@ const mapStateToProps = state => {
       resorts: state.resorts
     };
   }
-  console.log(resort)
+  else {
+    data = {
+      
+    }
+  }
   return {
-    resort: data
+    resorts: data
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
