@@ -23,9 +23,9 @@ class SearchResults extends Component {
         <SearchSidebar/>
         <div className="results-wrapper">
           <TopFeature/>
-          <Resort/>
-          <Resort/>
-          <Resort/>
+          <Resort resorts={this.props.data.resorts}/>
+          <Resort resorts={this.props.data.resorts}/>
+          <Resort resorts={this.props.data.resorts}/>
         </div>
       </div>
     );
@@ -42,7 +42,9 @@ const mapStateToProps = state => {
     };
   } else {
       data = {
-
+        resorts: {
+          
+        }
       }
     }
   return {
