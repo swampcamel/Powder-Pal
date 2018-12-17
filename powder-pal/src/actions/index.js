@@ -43,7 +43,7 @@ export const getResortsByLoc = (resortObj) => ({
 
 export const getPlaceInfo = (placeCandidates) => ({
   type: types.GET_PLACE_INFO,
-  placeCandidates
+  placeCandidates: placeCandidates
 })
 
 
@@ -74,6 +74,8 @@ export function fetchResortPlacesData(dispatch) {
     response => response.json(),
     error => console.log("FAIL", error)
   ).then(function(placesData) {
-    console.log(placesData);
+    if(placesData.candidates) {
+      dispatch(getPlaceInfo(placesData.candidates));
+    }
   });
 }

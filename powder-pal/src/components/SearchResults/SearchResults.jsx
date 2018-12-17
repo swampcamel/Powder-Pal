@@ -36,6 +36,7 @@ class SearchResults extends Component {
 const mapStateToProps = state => {
   let data;
   const resort = state;
+  console.log(resort)
   if(!state.isFetching) {
     data = {
       resorts: state.resorts
