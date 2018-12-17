@@ -14,3 +14,21 @@
   height: 50%;
   justify-content: space-between;
 }
+
+.star-rating-outer {
+  display: inline-block;
+  position: relative;
+}
+
+.star-rating-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  color: #f8ce0b;
+}
+
+.star-rating-inner::before {
+}

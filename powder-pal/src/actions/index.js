@@ -62,6 +62,7 @@ export function fetchResorts() {
       response => response.json(),
       error => console.log("FAIL", error)
     ).then(function(data) {
+
       if (data.resortname) {
         const resort = data;
         console.log(resort);

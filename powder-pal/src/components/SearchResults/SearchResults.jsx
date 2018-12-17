@@ -37,7 +37,6 @@ class SearchResults extends Component {
   }
 }
 
-
 const mapStateToProps = state => {
   let data;
   const resort = state;
