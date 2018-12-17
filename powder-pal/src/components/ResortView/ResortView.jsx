@@ -1,9 +1,11 @@
 import React from 'react';
-import './ResortView.scss';
 
 import ResortDetailSidebar from './ResortDetailSidebar';
 import TopFeature from './../SearchResults/TopFeature';
 
+
+
+import './ResortView.scss';
 
 function ResortView() {
   return(

@@ -11,7 +11,8 @@ import ResortView from './ResortView/ResortView';
 import MainFooter from './MainFooter';
 import SecondaryFooter from './SecondaryFooter';
 import {Navbar, NavItem} from 'react-materialize';
-
+import {connect} from 'react-redux';
+import {fetchResorts} from './../actions';
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class App extends Component {
         <div className="navbar-fixed custom-nav">
           <Navbar className="transparent" brand='POWDER PAL' right>
             <NavItem href='components.html'>WHAT IS THIS</NavItem>
-            <NavItem onClick={() => console.log('test click')}>SIGN UP</NavItem>
+            <NavItem onClick={() => this.props.dispatch(fetchResorts())}>SIGN UP</NavItem>
             <NavItem href='components.html'>LOG IN</NavItem>
           </Navbar>
         </div>
@@ -39,4 +40,17 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  let data;
+  const resort = state;
+  if(state.isFetching) {
+    data = {
+      resorts: state.resorts
+    };
+  }
+  return {
+    resort: data
+  }
+}
+
+export default connect(mapStateToProps)(App);
