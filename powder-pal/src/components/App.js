@@ -48,6 +48,7 @@ const mapStateToProps = state => {
       resorts: state.resorts
     };
   }
+  console.log(resort)
   return {
     resort: data
   }

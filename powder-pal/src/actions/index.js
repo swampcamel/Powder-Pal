@@ -38,7 +38,7 @@ export const getResortsByLoc = (resortObj) => ({
 // }
 
   type: types.GET_RESORTS_L,
-    resortObj
+  resorts: resortObj
 })
   // query for parameter when search added
 export function fetchResorts() {
@@ -57,6 +57,6 @@ export function fetchResorts() {
         dispatch(getResortsByLoc(resort))
       }
     })
-    
+
   }
 }

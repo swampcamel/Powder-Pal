@@ -15,6 +15,7 @@ const appReducer = (state = {}, action) => {
         isFetching: false,
         resorts: action.resorts
       });
+      console.log(newResorts)
       newState = Object.assign({}, state, newResorts);
       return newState;
     default:
