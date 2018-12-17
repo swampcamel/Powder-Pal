@@ -43,7 +43,7 @@ const mapStateToProps = state => {
   } else {
       data = {
         resorts: {
-          
+
         }
       }
     }

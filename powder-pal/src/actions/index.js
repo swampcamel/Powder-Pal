@@ -7,40 +7,48 @@ export const findResortsByLoc = (location) => ({
 
 export const getResortsByLoc = (resortObj) => ({
   // or each property, which is:
-          // location: string
-          // distance: string
-          // openLiftStatus: string
-          // closedLiftStatus: string
-          // starRating: number
-          // reviewArrayLength: number
-          // avgCost: array[number]
-          // links: array[linkObject]
-          // condtions: array[conditionObject]
-          // runs: array[runObject]
-          // imageUrl: string
+  // location: string
+  // distance: string
+  // openLiftStatus: string
+  // closedLiftStatus: string
+  // starRating: number
+  // reviewArrayLength: number
+  // avgCost: array[number]
+  // links: array[linkObject]
+  // condtions: array[conditionObject]
+  // runs: array[runObject]
+  // imageUrl: string
 
   // Actual Structure of Weather Unlocked return Object:
-//       {
-//     "resortid": 333005,
-//     "resortname": "Courchevel",
-//     "resortcountry": "France",
-//     "newsnow_cm": 0,
-//     "newsnow_in": 0,
-//     "lowersnow_cm": 65,
-//     "lowersnow_in": 25.6,
-//     "uppersnow_cm": 142,
-//     "uppersnow_in": 55.9,
-//     "pctopen": 60,
-//     "lastsnow": "17/12/2018",
-//     "reportdate": "17/12/2018",
-//     "reporttime": "12:02",
-//     "conditions": "Fresh snowfall"
-// }
+  //       {
+    //     "resortid": 333005,
+    //     "resortname": "Courchevel",
+    //     "resortcountry": "France",
+    //     "newsnow_cm": 0,
+    //     "newsnow_in": 0,
+    //     "lowersnow_cm": 65,
+    //     "lowersnow_in": 25.6,
+    //     "uppersnow_cm": 142,
+    //     "uppersnow_in": 55.9,
+    //     "pctopen": 60,
+    //     "lastsnow": "17/12/2018",
+    //     "reportdate": "17/12/2018",
+    //     "reporttime": "12:02",
+    //     "conditions": "Fresh snowfall"
+    // }
 
-  type: types.GET_RESORTS_L,
-  resorts: resortObj
+    type: types.GET_RESORTS_L,
+    resorts: resortObj
+});
+
+export const getPlaceInfo = (placeCandidates) => ({
+  type: types.GET_PLACE_INFO,
+  placeCandidates
 })
-  // query for parameter when search added
+
+
+
+// query for parameter when search added
 export function fetchResorts() {
   return function (dispatch) {
 
@@ -54,9 +62,18 @@ export function fetchResorts() {
       if (data.resortname) {
         const resort = data;
         console.log(resort);
+        fetchResortPlacesData(dispatch)
         dispatch(getResortsByLoc(resort))
       }
     })
-
   }
+}
+
+export function fetchResortPlacesData(dispatch) {
+  return fetch('https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Courchevel%20France&inputtype=textquery&fields=photos,rating,geometry,name,place_id,formatted_address&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE&').then(
+    response => response.json(),
+    error => console.log("FAIL", error)
+  ).then(function(placesData) {
+    console.log(placesData);
+  });
 }
