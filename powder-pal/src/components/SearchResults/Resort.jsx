@@ -31,7 +31,6 @@ function Resort(props) {
 
   if (props.resorts && props.placeCandidates) {
     let value = Math.floor(distance(props.placeCandidates[0].geometry.location.lat, props.placeCandidates[0].geometry.location.lng, "M"));
-    console.log(value)
     return(
       <div className="resort">
         <div className="resort-col">
@@ -61,7 +60,9 @@ function Resort(props) {
           </ul>
         </div>
         <div className="resort-col">
-          <div className="resort-img-wrapper">Image</div>
+          <div className="resort-img-wrapper">
+            <img src={props.placePhotoURL}/>
+          </div>
         </div>
       </div>
     )}

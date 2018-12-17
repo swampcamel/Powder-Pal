@@ -17,18 +17,20 @@ class SearchResults extends Component {
     this.props.dispatch(fetchResorts());
   }
   render() {
-    console.log(this.props.data.placeCandidates)
     return(
       <div className="search-wrapper">
         <SearchSidebar/>
         <div className="results-wrapper">
           <TopFeature/>
           <Resort resorts={this.props.data.resorts}
-            placeCandidates={this.props.data.placeCandidates}/>
+            placeCandidates={this.props.data.placeCandidates}
+            placePhotoURL={this.props.data.placePhotoURL}/>
           <Resort resorts={this.props.data.resorts}
-            placeCandidates={this.props.data.placeCandidates}/>
+            placeCandidates={this.props.data.placeCandidates}
+            placePhotoURL={this.props.data.placePhotoURL}/>
           <Resort resorts={this.props.data.resorts}
-            placeCandidates={this.props.data.placeCandidates}/>
+            placeCandidates={this.props.data.placeCandidates}
+            placePhotoURL={this.props.data.placePhotoURL}/>
         </div>
       </div>
     );
@@ -43,7 +45,8 @@ const mapStateToProps = state => {
   if(!state.isFetching) {
     data = {
       resorts: state.resorts,
-      placeCandidates: state.placeCandidates
+      placeCandidates: state.placeCandidates,
+      placePhotoURL: state.placePhotoURL
     };
   } else {
       data = {

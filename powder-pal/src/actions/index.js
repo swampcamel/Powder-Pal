@@ -46,7 +46,10 @@ export const getPlaceInfo = (placeCandidates) => ({
   placeCandidates: placeCandidates
 })
 
-
+export const getPlacePhotoURL = (placePhotoURL) => ({
+  type: types.GET_PLACE_PHOTO,
+  placePhotoURL: placePhotoURL
+})
 
 // query for parameter when search added
 export function fetchResorts() {
@@ -75,7 +78,7 @@ export function fetchResortPlacesData(dispatch) {
     error => console.log("FAIL", error)
   ).then(function(placesData) {
     if(placesData.candidates) {
-      fetchResortPlacesPhoto(placesData.candidates[0].photos[0].photoreference, dispatch)
+      fetchResortPlacesPhoto(placesData.candidates[0].photos[0].photoreference, dispatch);
       dispatch(getPlaceInfo(placesData.candidates));
     }
   });
@@ -89,7 +92,7 @@ export function fetchResortPlacesPhoto(photoId, dispatch) {
     if (image) {
       let blobUrl = URL.createObjectURL(image);
       console.log(blobUrl);
-
+      dispatch(getPlacePhotoURL(blobUrl));
     }
   })
 }

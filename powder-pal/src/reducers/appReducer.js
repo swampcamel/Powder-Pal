@@ -5,6 +5,7 @@ const appReducer = (state = {}, action) => {
   let newResorts;
   let newState;
   let newPlaceInfo;
+  let newPlacePhoto;
   switch (action.type) {
     // case types.FIND_RESORTS_L:
     //   newResorts = {
@@ -27,6 +28,15 @@ const appReducer = (state = {}, action) => {
       });
       console.log(newPlaceInfo)
       newState = Object.assign({}, state, newPlaceInfo);
+      return newState;
+
+    case types.GET_PLACE_PHOTO:
+      newPlacePhoto = Object.assign({}, state, {
+        isFetching: false,
+        placePhotoURL: action.placePhotoURL
+      });
+      console.log(newPlacePhoto);
+      newState = Object.assign({}, state, newPlacePhoto);
       return newState;
 
     default:
