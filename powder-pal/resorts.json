@@ -1,0 +1,994 @@
+[
+    {
+        "id": "49-degrees-north",
+        "name": "49 Degrees North",
+        "ll": [
+            -117.564011,
+            48.302353
+        ]
+    },
+    {
+        "id": "abasin",
+        "name": "Arapaho Basin",
+        "ll": [
+            -105.871872,
+            39.642464
+        ]
+    },
+    {
+        "id": "alpine",
+        "name": "Alpine Meadows",
+        "ll": [
+            -120.150902,
+            39.148201
+        ]
+    },
+    {
+        "id": "alta",
+        "name": "Alta",
+        "ll": [
+            -111.63726,
+            40.583828
+        ]
+    },
+    {
+        "id": "alyeska",
+        "name": "Alyeska",
+        "ll": [
+            -149.102676,
+            60.961445
+        ]
+    },
+    {
+        "id": "angel-fire",
+        "name": "Angel Fire",
+        "ll": [
+            -105.273903,
+            36.387402
+        ]
+    },
+    {
+        "id": "aspen-highlands",
+        "name": "Aspen Highlands",
+        "ll": [
+            -106.855904,
+            39.182522
+        ]
+    },
+    {
+        "id": "aspen-mountain",
+        "name": "Aspen Mountain",
+        "ll": [
+            -106.819275,
+            39.186714
+        ]
+    },
+    {
+        "id": "attitash",
+        "name": "Attitash",
+        "ll": [
+            -71.282776,
+            44.077778
+        ]
+    },
+    {
+        "id": "beavercreek",
+        "name": "Beaver Creek",
+        "ll": [
+            -106.517899,
+            39.600464
+        ]
+    },
+    {
+        "id": "big-sky",
+        "name": "Big Sky",
+        "ll": [
+            -111.401389,
+            45.283333
+        ]
+    },
+    {
+        "id": "big-white",
+        "name": "Big White",
+        "ll": [
+            -119.495399,
+            49.888
+        ]
+    },
+    {
+        "id": "bluemountain",
+        "name": "Blue Mountain",
+        "ll": [
+            -80.316116,
+            44.50758
+        ]
+    },
+    {
+        "id": "bolton-valley",
+        "name": "Bolton Valley",
+        "ll": [
+            -72.84948,
+            44.421673
+        ]
+    },
+    {
+        "id": "boreal",
+        "name": "Boreal",
+        "ll": [
+            -120.270203,
+            39.316502
+        ]
+    },
+    {
+        "id": "breck",
+        "name": "Breckenridge",
+        "ll": [
+            -106.066238,
+            39.480724
+        ]
+    },
+    {
+        "id": "brettonwoods",
+        "name": "Bretton Woods",
+        "ll": [
+            -71.340408,
+            44.077122
+        ]
+    },
+    {
+        "id": "brianhead",
+        "name": "Brian Head",
+        "ll": [
+            -112.848129,
+            37.692753
+        ]
+    },
+    {
+        "id": "bridger-bowl",
+        "name": "Bridger Bowl",
+        "ll": [
+            -110.89814,
+            45.817974
+        ]
+    },
+    {
+        "id": "brighton",
+        "name": "Brighton",
+        "ll": [
+            -111.592041,
+            40.620697
+        ]
+    },
+    {
+        "id": "bromley-mountain",
+        "name": "Bromley Mountain",
+        "ll": [
+            -72.935013,
+            43.213402
+        ]
+    },
+    {
+        "id": "burke-mountain",
+        "name": "Burke Mountain",
+        "ll": [
+            -71.91745,
+            44.587898
+        ]
+    },
+    {
+        "id": "buttermilk",
+        "name": "Buttermilk",
+        "ll": [
+            -106.860474,
+            39.206944
+        ]
+    },
+    {
+        "id": "caberfae-peaks",
+        "name": "Caberfae Peaks",
+        "ll": [
+            -85.719765,
+            44.245014
+        ]
+    },
+    {
+        "id": "camelback",
+        "name": "Camelback Mountain",
+        "ll": [
+            -75.355,
+            41.051389
+        ]
+    },
+    {
+        "id": "cannon",
+        "name": "Cannon",
+        "ll": [
+            -71.698418,
+            44.156452
+        ]
+    },
+    {
+        "id": "cataloochee",
+        "name": "Cataloochee",
+        "ll": [
+            -83.090027,
+            35.562656
+        ]
+    },
+    {
+        "id": "chinapeak",
+        "name": "China Peak",
+        "ll": [
+            -119.161705,
+            37.228348
+        ]
+    },
+    {
+        "id": "copper",
+        "name": "Copper Mountain",
+        "ll": [
+            -106.155998,
+            39.501125
+        ]
+    },
+    {
+        "id": "courchevel",
+        "name": "Courchevel - 3 Vallees",
+        "ll": [
+            6.6339,
+            45.415
+        ]
+    },
+    {
+        "id": "cranmore-mountain",
+        "name": "Cranmore",
+        "ll": [
+            -71.116783,
+            44.055382
+        ]
+    },
+    {
+        "id": "cransmontana",
+        "name": "Crans-Montana",
+        "ll": [
+            7.4674,
+            46.3087
+        ]
+    },
+    {
+        "id": "crested-butte",
+        "name": "Crested Butte",
+        "ll": [
+            -106.964821,
+            38.899502
+        ]
+    },
+    {
+        "id": "crystal-mountain",
+        "name": "Crystal Mountain",
+        "ll": [
+            -121.5802,
+            46.9459
+        ]
+    },
+    {
+        "id": "deer-valley",
+        "name": "Deer Valley",
+        "ll": [
+            -111.489555,
+            40.620499
+        ]
+    },
+    {
+        "id": "devils-head",
+        "name": "Devil's Head",
+        "ll": [
+            -89.636703,
+            43.4016
+        ]
+    },
+    {
+        "id": "diamondpeak",
+        "name": "Diamond Peak",
+        "ll": [
+            -119.930199,
+            39.249599
+        ]
+    },
+    {
+        "id": "gore-mountain",
+        "name": "Gore Mountain",
+        "ll": [
+            -74.007172,
+            43.672653
+        ]
+    },
+    {
+        "id": "grand-targhee",
+        "name": "Grand Targhee",
+        "ll": [
+            -111.065201,
+            43.742401
+        ]
+    },
+    {
+        "id": "grouse",
+        "name": "Grouse Mountain",
+        "ll": [
+            -123.083099,
+            49.379292
+        ]
+    },
+    {
+        "id": "gunstock",
+        "name": "Gunstock",
+        "ll": [
+            -71.360092,
+            43.551796
+        ]
+    },
+    {
+        "id": "heavenly",
+        "name": "Heavenly",
+        "ll": [
+            -119.939629,
+            38.936611
+        ]
+    },
+    {
+        "id": "hochfuegen",
+        "name": "Hochfügen",
+        "ll": [
+            11.77694416,
+            47.26889038
+        ]
+    },
+    {
+        "id": "homewood",
+        "name": "Homewood",
+        "ll": [
+            -120.219498,
+            39.063099
+        ]
+    },
+    {
+        "id": "hoodoo",
+        "name": "Hoodoo",
+        "ll": [
+            -121.871513,
+            44.408646
+        ]
+    },
+    {
+        "id": "hunter",
+        "name": "Hunter Mountain",
+        "ll": [
+            -74.20874,
+            42.205029
+        ]
+    },
+    {
+        "id": "ischgl-silvretta-arena",
+        "name": "Ischgl - Silvretta",
+        "ll": [
+            10.2887,
+            47.010101
+        ]
+    },
+    {
+        "id": "jackson-hole",
+        "name": "Jackson Hole",
+        "ll": [
+            -110.827438,
+            43.588318
+        ]
+    },
+    {
+        "id": "jay-peak",
+        "name": "Jay Peak",
+        "ll": [
+            -72.501701,
+            44.928837
+        ]
+    },
+    {
+        "id": "jiminypeak",
+        "name": "Jiminy Peak",
+        "ll": [
+            -73.291328,
+            42.556477
+        ]
+    },
+    {
+        "id": "june-mountain",
+        "name": "June Mountain",
+        "ll": [
+            -119.090721,
+            37.767796
+        ]
+    },
+    {
+        "id": "keystone",
+        "name": "Keystone",
+        "ll": [
+            -105.953438,
+            39.605011
+        ]
+    },
+    {
+        "id": "killington",
+        "name": "Killington",
+        "ll": [
+            -72.802879,
+            43.619675
+        ]
+    },
+    {
+        "id": "king-pine",
+        "name": "King Pine",
+        "ll": [
+            -71.088127,
+            43.86063
+        ]
+    },
+    {
+        "id": "kirkwood",
+        "name": "Kirkwood",
+        "ll": [
+            -120.066856,
+            38.683231
+        ]
+    },
+    {
+        "id": "kitzbuehel",
+        "name": "Kitzbühel",
+        "ll": [
+            12.3908,
+            47.446602
+        ]
+    },
+    {
+        "id": "laplagne",
+        "name": "La Plagne",
+        "ll": [
+            6.6772,
+            45.5064
+        ]
+    },
+    {
+        "id": "larosiere",
+        "name": "La Rosière",
+        "ll": [
+            6.8492,
+            45.6272
+        ]
+    },
+    {
+        "id": "lesmenuires",
+        "name": "Les Menuires",
+        "ll": [
+            6.5375,
+            45.3236
+        ]
+    },
+    {
+        "id": "loon",
+        "name": "Loon Mountain",
+        "ll": [
+            -71.625809,
+            44.056583
+        ]
+    },
+    {
+        "id": "loveland",
+        "name": "Loveland",
+        "ll": [
+            -105.89595,
+            39.679993
+        ]
+    },
+    {
+        "id": "mad-river-glen",
+        "name": "Mad River Glen",
+        "ll": [
+            -72.919006,
+            44.201653
+        ]
+    },
+    {
+        "id": "mammoth-lakes",
+        "name": "Mammoth Mountain",
+        "ll": [
+            -119.037346,
+            37.651772
+        ]
+    },
+    {
+        "id": "megeve",
+        "name": "Megève",
+        "ll": [
+            6.6181,
+            45.8578
+        ]
+    },
+    {
+        "id": "meribel",
+        "name": "Meribel",
+        "ll": [
+            6.5655,
+            45.3967
+        ]
+    },
+    {
+        "id": "monarch",
+        "name": "Monarch Mountain",
+        "ll": [
+            -106.331696,
+            38.512714
+        ]
+    },
+    {
+        "id": "mount-sunapee",
+        "name": "Mount Sunapee",
+        "ll": [
+            -72.075394,
+            43.341194
+        ]
+    },
+    {
+        "id": "mountsnow",
+        "name": "Mount Snow",
+        "ll": [
+            -72.8936,
+            42.968166
+        ]
+    },
+    {
+        "id": "mt-buller",
+        "name": "Mount Buller",
+        "ll": [
+            146.44982,
+            -37.1462
+        ]
+    },
+    {
+        "id": "mt-hotham",
+        "name": "Mount Hotham",
+        "ll": [
+            147.1328,
+            -36.9752
+        ]
+    },
+    {
+        "id": "mt-spokane",
+        "name": "Mt Spokane",
+        "ll": [
+            -117.096107,
+            47.921261
+        ]
+    },
+    {
+        "id": "mtbachelor",
+        "name": "Mount Bachelor",
+        "ll": [
+            -121.67865,
+            44.003559
+        ]
+    },
+    {
+        "id": "mtbrighton",
+        "name": "Mt Brighton",
+        "ll": [
+            -83.811553,
+            42.540783
+        ]
+    },
+    {
+        "id": "mthigh",
+        "name": "Mountain High",
+        "ll": [
+            -117.691544,
+            34.376888
+        ]
+    },
+    {
+        "id": "mthood",
+        "name": "Mount Hood",
+        "ll": [
+            -121.665688,
+            45.331936
+        ]
+    },
+    {
+        "id": "mtrose",
+        "name": "Mount Rose",
+        "ll": [
+            -119.878601,
+            39.3283
+        ]
+    },
+    {
+        "id": "northstar",
+        "name": "Northstar",
+        "ll": [
+            -120.122086,
+            39.275173
+        ]
+    },
+    {
+        "id": "okemo",
+        "name": "Okemo",
+        "ll": [
+            -72.716705,
+            43.401806
+        ]
+    },
+    {
+        "id": "owlshead",
+        "name": "Owl's Head",
+        "ll": [
+            -72.297806,
+            45.074642
+        ]
+    },
+    {
+        "id": "parkcity",
+        "name": "Park City",
+        "ll": [
+            -111.508118,
+            40.651375
+        ]
+    },
+    {
+        "id": "pats-peak",
+        "name": "Pats Peak",
+        "ll": [
+            -71.833412,
+            43.180679
+        ]
+    },
+    {
+        "id": "pico",
+        "name": "Pico Mountain",
+        "ll": [
+            -72.842613,
+            43.663277
+        ]
+    },
+    {
+        "id": "ragged-mountain",
+        "name": "Ragged Mountain",
+        "ll": [
+            -71.842003,
+            43.486305
+        ]
+    },
+    {
+        "id": "red-lodge-mountain",
+        "name": "Red Lodge Mountain",
+        "ll": [
+            -109.335037,
+            45.191021
+        ]
+    },
+    {
+        "id": "red-mountain",
+        "name": "Red Mountain",
+        "ll": [
+            -117.819099,
+            49.105343
+        ]
+    },
+    {
+        "id": "schweitzer",
+        "name": "Schweitzer",
+        "ll": [
+            -116.643562,
+            48.538433
+        ]
+    },
+    {
+        "id": "shawnee-mountain",
+        "name": "Shawnee Mountain",
+        "ll": [
+            -75.078117,
+            41.03688
+        ]
+    },
+    {
+        "id": "shawnee-peak",
+        "name": "Shawnee Peak",
+        "ll": [
+            -70.817528,
+            44.053791
+        ]
+    },
+    {
+        "id": "sierra",
+        "name": "Sierra at Tahoe",
+        "ll": [
+            -120.090012,
+            38.792763
+        ]
+    },
+    {
+        "id": "silver-star",
+        "name": "Silver Star",
+        "ll": [
+            -119.208603,
+            50.438702
+        ]
+    },
+    {
+        "id": "smuggs",
+        "name": "Smugglers' Notch",
+        "ll": [
+            -72.78833,
+            44.589092
+        ]
+    },
+    {
+        "id": "snow-valley",
+        "name": "Snow Valley",
+        "ll": [
+            -117.035667,
+            34.228409
+        ]
+    },
+    {
+        "id": "snowbasin",
+        "name": "Snowbasin",
+        "ll": [
+            -111.859703,
+            41.214596
+        ]
+    },
+    {
+        "id": "snowbird",
+        "name": "Snowbird",
+        "ll": [
+            -111.657082,
+            40.581074
+        ]
+    },
+    {
+        "id": "snowmass",
+        "name": "Snowmass",
+        "ll": [
+            -106.949158,
+            39.198471
+        ]
+    },
+    {
+        "id": "snowshoe",
+        "name": "Snowshoe Mountain",
+        "ll": [
+            -79.989998,
+            38.400002
+        ]
+    },
+    {
+        "id": "soelden",
+        "name": "Sölden",
+        "ll": [
+            11.0092,
+            46.9702
+        ]
+    },
+    {
+        "id": "solitude",
+        "name": "Solitude",
+        "ll": [
+            -111.600708,
+            40.625648
+        ]
+    },
+    {
+        "id": "squaw",
+        "name": "Squaw Valley",
+        "ll": [
+            -120.233299,
+            39.196045
+        ]
+    },
+    {
+        "id": "st-anton-am-arlberg",
+        "name": "St. Anton Am Arlberg",
+        "ll": [
+            10.264,
+            47.127499
+        ]
+    },
+    {
+        "id": "steamboat",
+        "name": "Steamboat",
+        "ll": [
+            -106.805733,
+            40.458214
+        ]
+    },
+    {
+        "id": "stevens",
+        "name": "Stevens Pass",
+        "ll": [
+            -121.421242,
+            47.76046
+        ]
+    },
+    {
+        "id": "stowe",
+        "name": "Stowe",
+        "ll": [
+            -72.786873,
+            44.530502
+        ]
+    },
+    {
+        "id": "stratton",
+        "name": "Stratton",
+        "ll": [
+            -72.906303,
+            43.114017
+        ]
+    },
+    {
+        "id": "sugarbowl",
+        "name": "Sugar Bowl",
+        "ll": [
+            -120.333206,
+            39.305447
+        ]
+    },
+    {
+        "id": "sugarbush",
+        "name": "Sugarbush",
+        "ll": [
+            -72.879318,
+            44.145721
+        ]
+    },
+    {
+        "id": "sugarloaf",
+        "name": "Sugarloaf",
+        "ll": [
+            -70.315147,
+            45.06728
+        ]
+    },
+    {
+        "id": "sun-peaks",
+        "name": "Sun Peaks",
+        "ll": [
+            -119.9132,
+            50.877369
+        ]
+    },
+    {
+        "id": "sunday-river",
+        "name": "Sunday River",
+        "ll": [
+            -70.907394,
+            44.550358
+        ]
+    },
+    {
+        "id": "sunshine-village",
+        "name": "Sunshine Village",
+        "ll": [
+            -115.682602,
+            51.174175
+        ]
+    },
+    {
+        "id": "sunvalley",
+        "name": "Sun Valley",
+        "ll": [
+            -114.339996,
+            43.709999
+        ]
+    },
+    {
+        "id": "tahoe-donner",
+        "name": "Tahoe Donner",
+        "ll": [
+            -120.257957,
+            39.354725
+        ]
+    },
+    {
+        "id": "taos",
+        "name": "Taos Ski Valley",
+        "ll": [
+            -105.450699,
+            36.596199
+        ]
+    },
+    {
+        "id": "telluride",
+        "name": "Telluride",
+        "ll": [
+            -107.850723,
+            37.932961
+        ]
+    },
+    {
+        "id": "tremblant",
+        "name": "Mont Tremblant",
+        "ll": [
+            -74.584641,
+            46.213696
+        ]
+    },
+    {
+        "id": "vail",
+        "name": "Vail",
+        "ll": [
+            -106.356155,
+            39.605026
+        ]
+    },
+    {
+        "id": "verbier",
+        "name": "Verbier",
+        "ll": [
+            7.233,
+            46.0935
+        ]
+    },
+    {
+        "id": "waterville",
+        "name": "Waterville Valley",
+        "ll": [
+            -71.519989,
+            43.961613
+        ]
+    },
+    {
+        "id": "whistler-blackcomb",
+        "name": "Whistler Blackcomb",
+        "ll": [
+            -122.922073,
+            50.10693
+        ]
+    },
+    {
+        "id": "whiteface",
+        "name": "Whiteface",
+        "ll": [
+            -73.870613,
+            44.356506
+        ]
+    },
+    {
+        "id": "wildcat",
+        "name": "Wildcat",
+        "ll": [
+            -71.236725,
+            44.264626
+        ]
+    },
+    {
+        "id": "windham",
+        "name": "Windham Mountain",
+        "ll": [
+            -74.259941,
+            42.295597
+        ]
+    },
+    {
+        "id": "winter-park",
+        "name": "Winter Park",
+        "ll": [
+            -105.764267,
+            39.891563
+        ]
+    },
+    {
+        "id": "winterplace",
+        "name": "Winterplace",
+        "ll": [
+            -81.11824,
+            37.59594
+        ]
+    }
+]

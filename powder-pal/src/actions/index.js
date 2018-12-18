@@ -5,8 +5,11 @@ const {types} = constants;
 const {firebaseConfig} = constants;
 
 Firebase.initializeApp(firebaseConfig);
-const tickets = Firebase.database().ref('users');
-console.log(tickets)
+let resorts;
+Firebase.database().ref('resorts/').once('value').then(function(snapshot) {
+  resorts = snapshot.val()
+  console.log(resorts)
+})
 
 export const findResortsByLoc = (location) => ({
   type: types.FIND_RESORTS_L,
