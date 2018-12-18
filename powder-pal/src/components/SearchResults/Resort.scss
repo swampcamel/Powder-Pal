@@ -18,3 +18,11 @@
     width: 33%;
   }
 }
+
+.location-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  padding: 12px 0;
+}

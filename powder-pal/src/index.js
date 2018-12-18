@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import appReducer from './reducers/appReducer';
 import thunkMiddleware from 'redux-thunk';
 
+
 const store = createStore(appReducer, applyMiddleware(thunkMiddleware));
 
 let unsubscribe = store.subscribe(() =>

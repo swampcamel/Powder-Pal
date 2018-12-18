@@ -1,4 +1,12 @@
-import * as types from './../constants/ActionTypes';
+import constants from './../constants';
+import Firebase from 'firebase';
+
+const {types} = constants;
+const {firebaseConfig} = constants;
+
+Firebase.initializeApp(firebaseConfig);
+const tickets = Firebase.database().ref('users');
+console.log(tickets)
 
 export const findResortsByLoc = (location) => ({
   type: types.FIND_RESORTS_L,
@@ -51,6 +59,11 @@ export const getPlacePhotoURL = (placePhotoURL) => ({
   placePhotoURL: placePhotoURL
 })
 
+export const getLiftieInfo = (liftieData) => ({
+  type: types.GET_LIFTIE_INFO,
+  resortStatus: liftieData
+})
+
 // query for parameter when search added
 export function fetchResorts() {
   return function (dispatch) {
@@ -66,11 +79,21 @@ export function fetchResorts() {
       if (data.resortname) {
         const resort = data;
         console.log(resort);
-        fetchResortPlacesData(dispatch)
-        dispatch(getResortsByLoc(resort))
+        fetchResortPlacesData(dispatch);
+        fetchLiftieInfo(dispatch);
+        dispatch(getResortsByLoc(resort));
       }
     })
   }
+}
+
+export function fetchLiftieInfo(dispatch) {
+  return fetch('https://liftie.info/api/resort/courchevel').then(
+    response => response.json(),
+    error => console.log("Fail", error)
+  ).then(function(liftieData) {
+    console.log(liftieData)
+  })
 }
 
 export function fetchResortPlacesData(dispatch) {
