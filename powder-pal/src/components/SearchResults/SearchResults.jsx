@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {fetchResorts} from './../../actions';
-
 import './SearchResults.scss';
 
 import SearchSidebar from './SearchSidebar';
@@ -23,8 +22,8 @@ class SearchResults extends Component {
         <div className="results-wrapper">
           <TopFeature/>
           <Resort resorts={this.props.data.resorts}
-            placeCandidates={this.props.data.placeCandidates}
-            placePhotoURL={this.props.data.placePhotoURL}/>
+              placeCandidates={this.props.data.placeCandidates}
+              placePhotoURL={this.props.data.placePhotoURL}/>
           <Resort resorts={this.props.data.resorts}
             placeCandidates={this.props.data.placeCandidates}
             placePhotoURL={this.props.data.placePhotoURL}/>

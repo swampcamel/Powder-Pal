@@ -78,6 +78,7 @@ export function fetchResortPlacesData(dispatch) {
     response => response.json(),
     error => console.log("FAIL", error)
   ).then(function(placesData) {
+    console.log(placesData)
     if(placesData.candidates) {
       fetchResortPlacesPhoto(placesData.candidates[0].photos[0].photoreference, dispatch);
       dispatch(getPlaceInfo(placesData.candidates));

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Resort.scss';
-
+import {Link} from 'react-router-dom';
 
 function distance(lat2, lon2, unit) {
   //default coords for portland
@@ -34,7 +34,9 @@ function Resort(props) {
     return(
       <div className="resort">
         <div className="resort-col">
-          <h5>{props.resorts.resortname}</h5>
+          <Link to="/resort">
+            <h5>{props.resorts.resortname}</h5>
+          </Link>
           <h6>{props.resorts.resortcountry}</h6>
           <p>{value} Miles Away</p>
 
@@ -60,9 +62,11 @@ function Resort(props) {
           </ul>
         </div>
         <div className="resort-col">
-          <div className="resort-img-wrapper">
-            <img src={props.placePhotoURL}/>
-          </div>
+          <Link to="/resort">
+            <div className="resort-img-wrapper">
+              <img src={props.placePhotoURL}/>
+            </div>
+          </Link>
         </div>
       </div>
     )}
