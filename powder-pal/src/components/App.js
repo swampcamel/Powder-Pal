@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Switch, Route, withRouter } from 'react-router-dom';
+import * as actions from './../actions';
 
 import './App.scss';
 
@@ -17,6 +18,11 @@ import {fetchResorts} from './../actions';
 class App extends Component {
   constructor(props) {
     super(props);
+  }
+  componentWillMount() {
+    const {dispatch} = this.props;
+    const {getResortListSnapshot} = actions;
+    dispatch(getResortListSnapshot())
   }
   render() {
     return (
@@ -50,7 +56,7 @@ const mapStateToProps = state => {
   }
   else {
     data = {
-      
+
     }
   }
   return {

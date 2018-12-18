@@ -39,6 +39,12 @@ const appReducer = (state = {}, action) => {
       newState = Object.assign({}, state, newPlacePhoto);
       return newState;
 
+    case types.GET_LIFTIE_INFO:
+      newState = Object.assign({}, state, {
+        liftieData: action.liftieData
+      });
+      return newState;
+
     default:
       return state;
   }

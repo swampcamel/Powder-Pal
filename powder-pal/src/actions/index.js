@@ -5,11 +5,8 @@ const {types} = constants;
 const {firebaseConfig} = constants;
 
 Firebase.initializeApp(firebaseConfig);
-let resorts;
-Firebase.database().ref('resorts/').once('value').then(function(snapshot) {
-  resorts = snapshot.val()
-  console.log(resorts)
-})
+
+const resortList = Firebase.database().ref('resorts/');
 
 export const findResortsByLoc = (location) => ({
   type: types.FIND_RESORTS_L,
@@ -64,8 +61,18 @@ export const getPlacePhotoURL = (placePhotoURL) => ({
 
 export const getLiftieInfo = (liftieData) => ({
   type: types.GET_LIFTIE_INFO,
-  resortStatus: liftieData
+  liftieData: liftieData
 })
+
+export function getResortListSnapshot() {
+  return function (dispatch) {
+  resortList.once('value').then(function(snapshot) {
+    const resortSnapshot = snapshot.val();
+    console.log(resortSnapshot)
+    dispatch(getLiftieInfo(resortSnapshot))
+  })}
+}
+
 
 // query for parameter when search added
 export function fetchResorts() {
