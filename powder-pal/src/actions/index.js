@@ -64,16 +64,64 @@ export const getLiftieInfo = (liftieData) => ({
   liftieData: liftieData
 })
 
+export const getUserGeo = (userGeo) => ({
+  type: types.GET_USER_GEO,
+  userGeo: userGeo
+})
+
+export const getLiftieResort = (liftieResortInfo) => ({
+  type: types.GET_LIFTIE_RESORT,
+  liftieResortInfo: liftieResortInfo
+})
+
 export function getResortListSnapshot() {
   return function (dispatch) {
   resortList.once('value').then(function(snapshot) {
     const resortSnapshot = snapshot.val();
-    console.log(resortSnapshot)
     dispatch(getLiftieInfo(resortSnapshot))
   })}
 }
 
+// export function getLiftieResortData(query) {
+//   return function (dispatch){
+//   return fetch(`https://liftie.info/api/resort/${query}`).then(
+//     response => response.json(),
+//     error => console.log("FAIL", error)
+//   ).then(function(resortData) {
+//     if(resortData.id) {
+//       dispatch(getLiftieResort(resortData));
+//     }
+//   })}
+// }
 
+export function getLiftieResortData(fullListofShit) {
+  return function (dispatch){
+    if(etc)
+  return fetch(`https://liftie.info/api/resort/${query}`).then(
+    response => response.json(),
+    error => console.log("FAIL", error)
+  ).then(function(resortData) {
+    if(resortData.id) {
+      dispatch(getLiftieResort(resortData));
+    }
+  })}
+}
+
+export function getUserGeoCode(query) {
+  const formattedQuery = query.split(' ').join('+');
+  return function(dispatch) {
+    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedQuery}&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE`).then(
+      response => response.json(),
+      error => console.log("FAIL", error)
+    ).then(function(geodata) {
+      console.log(geodata)
+      if(geodata.results) {
+        const results = geodata.results[0].geometry.location;
+        dispatch(getUserGeo(results));
+      }
+    })
+  }
+}
 // query for parameter when search added
 export function fetchResorts() {
   return function (dispatch) {
@@ -88,7 +136,6 @@ export function fetchResorts() {
 
       if (data.resortname) {
         const resort = data;
-        console.log(resort);
         fetchResortPlacesData(dispatch);
         fetchLiftieInfo(dispatch);
         dispatch(getResortsByLoc(resort));
@@ -102,7 +149,6 @@ export function fetchLiftieInfo(dispatch) {
     response => response.json(),
     error => console.log("Fail", error)
   ).then(function(liftieData) {
-    console.log(liftieData)
   })
 }
 
@@ -111,7 +157,6 @@ export function fetchResortPlacesData(dispatch) {
     response => response.json(),
     error => console.log("FAIL", error)
   ).then(function(placesData) {
-    console.log(placesData)
     if(placesData.candidates) {
       fetchResortPlacesPhoto(placesData.candidates[0].photos[0].photoreference, dispatch);
       dispatch(getPlaceInfo(placesData.candidates));
@@ -126,7 +171,6 @@ export function fetchResortPlacesPhoto(photoId, dispatch) {
   ).then(function(image) {
     if (image) {
       let blobUrl = URL.createObjectURL(image);
-      console.log(blobUrl);
       dispatch(getPlacePhotoURL(blobUrl));
     }
   })

@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
+import {getUserGeoCode} from './../../actions';
+import {connect} from 'react-redux';
 import './HeroContent.scss';
 
-function HeroContent() {
+class HeroContent extends Component {
+  constructor(props) {
+    super(props)
+  }
+  render() {
   return (
     <div className="hero-content">
       <div className="hero-content-blurb">
@@ -16,11 +22,18 @@ function HeroContent() {
         </div>
         </Link>
         <div className="search-input">
-            <input placeholder="Enter a location"></input>
+          <form onSubmit={event => {
+              let query = this.input.value;
+              console.log(this.input)
+              event.preventDefault();
+              this.props.dispatch(getUserGeoCode(query))
+            }}>
+            <input ref={node => {this.input = node}} placeholder="Enter a location"></input>
+            </form>
         </div>
       </div>
     </div>
-  )
+  )}
 }
 
-export default HeroContent;
+export default connect()(HeroContent);

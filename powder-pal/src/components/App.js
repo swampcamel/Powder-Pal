@@ -13,7 +13,7 @@ import MainFooter from './MainFooter';
 import SecondaryFooter from './SecondaryFooter';
 import {Navbar, NavItem} from 'react-materialize';
 import {connect} from 'react-redux';
-import {fetchResorts} from './../actions';
+
 
 class App extends Component {
   constructor(props) {
@@ -46,22 +46,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  let data;
-  const resort = state;
-  if(state.isFetching) {
-    data = {
-      resorts: state.resorts
-    };
-  }
-  else {
-    data = {
 
-    }
-  }
-  return {
-    resorts: data
-  }
-}
 
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect()(App));
