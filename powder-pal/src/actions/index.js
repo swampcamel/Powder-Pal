@@ -14,37 +14,6 @@ export const findResortsByLoc = (location) => ({
 });
 
 export const getResortsByLoc = (resortObj) => ({
-  // or each property, which is:
-  // location: string
-  // distance: string
-  // openLiftStatus: string
-  // closedLiftStatus: string
-  // starRating: number
-  // reviewArrayLength: number
-  // avgCost: array[number]
-  // links: array[linkObject]
-  // condtions: array[conditionObject]
-  // runs: array[runObject]
-  // imageUrl: string
-
-  // Actual Structure of Weather Unlocked return Object:
-  //       {
-    //     "resortid": 333005,
-    //     "resortname": "Courchevel",
-    //     "resortcountry": "France",
-    //     "newsnow_cm": 0,
-    //     "newsnow_in": 0,
-    //     "lowersnow_cm": 65,
-    //     "lowersnow_in": 25.6,
-    //     "uppersnow_cm": 142,
-    //     "uppersnow_in": 55.9,
-    //     "pctopen": 60,
-    //     "lastsnow": "17/12/2018",
-    //     "reportdate": "17/12/2018",
-    //     "reporttime": "12:02",
-    //     "conditions": "Fresh snowfall"
-    // }
-
     type: types.GET_RESORTS_L,
     resorts: resortObj
 });
@@ -81,18 +50,6 @@ export function getResortListSnapshot() {
     dispatch(getLiftieInfo(resortSnapshot))
   })}
 }
-
-// export function getLiftieResortData(query) {
-//   return function (dispatch){
-//   return fetch(`https://liftie.info/api/resort/${query}`).then(
-//     response => response.json(),
-//     error => console.log("FAIL", error)
-//   ).then(function(resortData) {
-//     if(resortData.id) {
-//       dispatch(getLiftieResort(resortData));
-//     }
-//   })}
-// }
 
 export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
   //default coords for Portland OR (remove lat1 and lon1 from parameters to use)

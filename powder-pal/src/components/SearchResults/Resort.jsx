@@ -14,7 +14,7 @@ function Resort(props) {
           <div className="location-wrapper">
             <h6>{props.resortData.ll[0]} {props.resortData.ll[1]}</h6>
             <span>&bull;</span>
-            <p> Miles Away</p>
+            <p>{props.distance} Miles Away</p>
           </div>
           <span>{props.resortData.lifts.stats.open} Lifts Open</span> <span>{props.resortData.lifts.stats.closed} Lifts Closed</span>
           <div className="star-rating">*****</div>

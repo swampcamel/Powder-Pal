@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {fetchResorts, getLiftieResortData} from './../../actions';
+import {fetchResorts, getLiftieResortData, calculateDistance} from './../../actions';
 import './SearchResults.scss';
 
 import SearchSidebar from './SearchSidebar';
@@ -17,17 +17,18 @@ class SearchResults extends Component {
     this.props.dispatch(getLiftieResortData(this.props.data.liftieData, this.props.data.userGeo));
   }
 
-
   render() {
     return(
       <div className="search-wrapper">
         <SearchSidebar/>
         <div className="results-wrapper">
           <TopFeature/>
-          {this.props.data.filteredResults.map((resort, index) =>
-            <Resort key={index}
+          {this.props.data.filteredResults.map((resort, index) =>{
+            let value = calculateDistance(this.props.data.userGeo.lat, this.props.data.userGeo.lng, resort.ll[1], resort.ll[0], "M")
+            return(<Resort key={index}
               resortData={resort}
-              placePhotoURL={this.props.data.placePhotoURL}/>)} 
+              distance={value}
+              placePhotoURL={this.props.data.placePhotoURL}/>)})}
         </div>
       </div>
     );
