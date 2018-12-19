@@ -52,9 +52,6 @@ export function getResortListSnapshot() {
 }
 
 export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
-  //default coords for Portland OR (remove lat1 and lon1 from parameters to use)
-  // const lat1 = 45.520780;
-  // const lon1 = -122.677398;
   if ((lat1 == lat2) && (lon1 == lon2)) {
     return 0;
   }
@@ -81,7 +78,7 @@ export function getLiftieResortData(fullList, geoCoords) {
     const filteredList = [];
     fullList.forEach((resortInList, index) => {
       let distance = calculateDistance(geoCoords.lat, geoCoords.lng, resortInList.ll[1], resortInList.ll[0], "M");
-      if (distance < 1000) {
+      if (distance < 100) {
         filteredList.push(resortInList);
       }
     });

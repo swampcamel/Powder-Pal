@@ -56,6 +56,8 @@ const appReducer = (state = {filteredResults: []}, action) => {
       });
       return newState;
 
+    
+
     default:
       return state;
   }
