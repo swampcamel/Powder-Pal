@@ -24,10 +24,10 @@ class SearchResults extends Component {
         <SearchSidebar/>
         <div className="results-wrapper">
           <TopFeature/>
-          <Resort resorts={this.props.data.resorts} placeCandidates={this.props.data.placeCandidates} placePhotoURL={this.props.data.placePhotoURL}/>);
-              }
-          })}
-
+          {this.props.data.filteredResults.map((resort, index) =>
+            <Resort key={index}
+              resortData={resort}
+              placePhotoURL={this.props.data.placePhotoURL}/>)} 
         </div>
       </div>
     );
