@@ -43,10 +43,6 @@ export const getLiftieResort = (liftieResortInfo) => ({
   liftieResortInfo: liftieResortInfo
 })
 
-export const refreshFilteredList = () => ({
-  type: types.REFRESH_FILTERED_RESULTS
-})
-
 export function getResortListSnapshot() {
   return function (dispatch) {
   resortList.once('value').then(function(snapshot) {
@@ -54,7 +50,6 @@ export function getResortListSnapshot() {
     dispatch(getLiftieInfo(resortSnapshot))
   })}
 }
-
 
 export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
   if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -80,7 +75,6 @@ export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
 
 export function getLiftieResortData(fullList, geoCoords) {
   return function (dispatch){
-    dispatch(refreshFilteredList());
     const filteredList = [];
     fullList.forEach((resortInList, index) => {
       let distance = calculateDistance(geoCoords.lat, geoCoords.lng, resortInList.ll[1], resortInList.ll[0], "M");
@@ -102,7 +96,7 @@ export function getLiftieResortData(fullList, geoCoords) {
 }
 
 export function getUserGeoCode(query) {
-  const formattedQuery = query.split(' ').join('+').split(',').join();
+  const formattedQuery = query.split(' ').join('+');
   return function(dispatch) {
     return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedQuery}&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE`).then(
       response => response.json(),

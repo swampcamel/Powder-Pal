@@ -56,11 +56,7 @@ const appReducer = (state = {filteredResults: []}, action) => {
       });
       return newState;
 
-    case types.REFRESH_FILTERED_RESULTS:
-      newState = Object.assign({}, state, {
-        filteredResults: []
-      });
-      return newState;
+    
 
     default:
       return state;

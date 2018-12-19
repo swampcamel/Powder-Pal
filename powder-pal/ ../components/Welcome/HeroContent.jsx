@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {getUserGeoCode} from './../../actions';
 import {connect} from 'react-redux';
 import './HeroContent.scss';
@@ -8,16 +8,7 @@ class HeroContent extends Component {
   constructor(props) {
     super(props)
   }
-  state = {
-    toSearchView: false
-  }
-  switchToSearchView = () => {
-    this.setState(() => ({toSearchView: true}))
-  }
   render() {
-    if(this.state.toSearchView === true) {
-      return <Redirect to='/query'/>
-    }
   return (
     <div className="hero-content">
       <div className="hero-content-blurb">
@@ -36,7 +27,6 @@ class HeroContent extends Component {
               console.log(this.input)
               event.preventDefault();
               this.props.dispatch(getUserGeoCode(query))
-              setTimeout(() => {this.switchToSearchView()}, 500);
             }}>
             <input ref={node => {this.input = node}} placeholder="Enter a location"></input>
             </form>
