@@ -13,11 +13,12 @@ class SearchResults extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(getLiftieResortData(this.props.data.liftieData, this.props.data.userGeo, 300, "open"));
+    this.props.dispatch(fetchResorts());
+    this.props.dispatch(getLiftieResortData(this.props.data.liftieData, this.props.data.userGeo));
   }
 
   render() {
-    return (
+    return(
       <div className="search-wrapper">
         <SearchSidebar/>
         <div className="results-wrapper">
@@ -28,30 +29,37 @@ class SearchResults extends Component {
               resortData={resort}
               distance={value}
               placePhotoURL={this.props.data.placePhotoURL}/>)})}
-            </div>
-          </div>
-      );
-    }
+        </div>
+      </div>
+    );
   }
+}
 
-    const mapStateToProps = state => {
-      let data;
-      const resort = state;
-      if(!state.isFetching) {
-        data = {
-          placePhotoURL: state.placePhotoURL,
-          liftieData: state.liftieData,
-          userGeo: state.userGeo,
-          filteredResults: state.filteredResults
-        };
-      } else {
-        data = {
-          liftieData: state.liftieData
-        }
-      }
-      return {
-        data
+const mapStateToProps = state => {
+  let data;
+  const resort = state;
+  console.log(resort)
+  if(!state.isFetching) {
+    data = {
+      resorts: state.resorts,
+      placeCandidates: state.placeCandidates,
+      placePhotoURL: state.placePhotoURL,
+      liftieData: state.liftieData,
+      userGeo: state.userGeo,
+      filteredResults: state.filteredResults
+    };
+  } else {
+      data = {
+        resorts: {
+
+        },
+        liftieData: state.liftieData
       }
     }
+    console.log(data)
+  return {
+   data
+  }
+}
 
-    export default connect(mapStateToProps)(SearchResults);
+export default connect(mapStateToProps)(SearchResults);
