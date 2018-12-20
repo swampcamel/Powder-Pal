@@ -13,8 +13,7 @@ class SearchResults extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(fetchResorts());
-    this.props.dispatch(getLiftieResortData(this.props.data.liftieData, this.props.data.userGeo));
+    this.props.dispatch(getLiftieResortData(this.props.data.liftieData, this.props.data.userGeo, 300, "open"));
   }
 
   render() {
@@ -38,11 +37,8 @@ class SearchResults extends Component {
     const mapStateToProps = state => {
       let data;
       const resort = state;
-      console.log(resort)
       if(!state.isFetching) {
         data = {
-          resorts: state.resorts,
-          placeCandidates: state.placeCandidates,
           placePhotoURL: state.placePhotoURL,
           liftieData: state.liftieData,
           userGeo: state.userGeo,
@@ -50,13 +46,9 @@ class SearchResults extends Component {
         };
       } else {
         data = {
-          resorts: {
-
-          },
           liftieData: state.liftieData
         }
       }
-      console.log(data)
       return {
         data
       }

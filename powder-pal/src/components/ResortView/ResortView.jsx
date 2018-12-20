@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {fetchResorts} from './../../actions';
 
 import ResortDetailSidebar from './ResortDetailSidebar';
 import TopFeature from './../SearchResults/TopFeature';
@@ -13,13 +12,12 @@ class ResortView extends Component {
   }
 
   componentWillMount(){
-    this.props.dispatch(fetchResorts());
   }
 
   render(){
     return(
       <div className="resort-wrapper">
-        <ResortDetailSidebar resortImgUrl={this.props.data.placePhotoURL} resortInfo={this.props.data.placeCandidates}/>
+        <ResortDetailSidebar resortImgUrl={this.props.data.placePhotoURL} />
         <div className="detail-wrapper">
           <TopFeature/>
         </div>
@@ -34,15 +32,10 @@ const mapStateToProps = state => {
   const resort = state;
   if(!state.isFetching) {
     data = {
-      resorts: state.resorts,
-      placeCandidates: state.placeCandidates,
       placePhotoURL: state.placePhotoURL
     };
   } else {
     data = {
-      resorts: {
-
-      }
     }
   }
   return {

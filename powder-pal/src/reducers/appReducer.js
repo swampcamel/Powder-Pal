@@ -7,26 +7,6 @@ const appReducer = (state = {filteredResults: []}, action) => {
   let newPlaceInfo;
   let newPlacePhoto;
   switch (action.type) {
-    // case types.FIND_RESORTS_L:
-    //   newResorts = {
-    //     isFetching: true,
-    //     resorts
-    //   }
-    case types.GET_RESORTS_L:
-      newResorts = Object.assign({}, state, {
-        isFetching: false,
-        resorts: action.resorts
-      });
-      newState = Object.assign({}, state, newResorts);
-      return newState;
-
-    case types.GET_PLACE_INFO:
-      newPlaceInfo = Object.assign({}, state, {
-        isFetching: false,
-        placeCandidates: action.placeCandidates
-      });
-      newState = Object.assign({}, state, newPlaceInfo);
-      return newState;
 
     case types.GET_PLACE_PHOTO:
       newPlacePhoto = Object.assign({}, state, {

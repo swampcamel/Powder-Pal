@@ -33,7 +33,6 @@ class HeroContent extends Component {
         <div className="search-input">
           <form onSubmit={event => {
               let query = this.input.value;
-              console.log(this.input)
               event.preventDefault();
               this.props.dispatch(getUserGeoCode(query))
               setTimeout(() => {this.switchToSearchView()}, 500);
