@@ -29,16 +29,18 @@ class App extends Component {
       <div className="App">
         <div className="navbar-fixed custom-nav">
           <Navbar className="transparent" brand='POWDER PAL' right>
-            <NavItem href='components.html'>WHAT IS THIS</NavItem>
+            <NavItem href='https://www.github.com/swampcamel/powder-pal'>WHAT IS THIS</NavItem>
             <NavItem onClick={() => console.log("Yes")}>SIGN UP</NavItem>
             <NavItem href='components.html'>LOG IN</NavItem>
           </Navbar>
         </div>
+        <div className="wrapper-for-shadow">
         <Switch>
           <Route exact path='/' render={() => <Welcome/>} />
           <Route path='/query' render={() => <SearchResults/>} />
           <Route path ='/resort' render={() => <ResortView/>} />
         </Switch>
+        </div>
         <MainFooter/>
         <SecondaryFooter/>
       </div>
