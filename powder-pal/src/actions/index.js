@@ -8,34 +8,15 @@ Firebase.initializeApp(firebaseConfig);
 
 const resortList = Firebase.database().ref('resorts/');
 
-export const findResortsByLoc = (location) => ({
-  type: types.FIND_RESORTS_L,
-  location
-});
-
-export const getResortsByLoc = (resortObj) => ({
-    type: types.GET_RESORTS_L,
-    resorts: resortObj
-});
-
-export const getPlaceInfo = (placeCandidates) => ({
-  type: types.GET_PLACE_INFO,
-  placeCandidates: placeCandidates
-})
-
-export const getPlacePhotoURL = (placePhotoURL) => ({
-  type: types.GET_PLACE_PHOTO,
-  placePhotoURL: placePhotoURL
-})
-
 export const getLiftieInfo = (liftieData) => ({
   type: types.GET_LIFTIE_INFO,
   liftieData: liftieData
 })
 
-export const getUserGeo = (userGeo) => ({
+export const getUserGeo = (userGeo, query) => ({
   type: types.GET_USER_GEO,
-  userGeo: userGeo
+  userGeo: userGeo,
+  query: query
 })
 
 export const getLiftieResort = (liftieResortInfo) => ({
@@ -43,13 +24,9 @@ export const getLiftieResort = (liftieResortInfo) => ({
   liftieResortInfo: liftieResortInfo
 })
 
-export function getResortListSnapshot() {
-  return function (dispatch) {
-  resortList.once('value').then(function(snapshot) {
-    const resortSnapshot = snapshot.val();
-    dispatch(getLiftieInfo(resortSnapshot))
-  })}
-}
+export const refreshFilteredList = () => ({
+  type: types.REFRESH_FILTERED_RESULTS
+})
 
 export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
   if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -73,12 +50,38 @@ export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
   }
 }
 
-export function getLiftieResortData(fullList, geoCoords) {
+export function getResortListSnapshot() {
+  return function (dispatch) {
+  resortList.once('value').then(function(snapshot) {
+    const resortSnapshot = snapshot.val();
+    dispatch(getLiftieInfo(resortSnapshot))
+  })}
+}
+
+export function getUserGeoCode(query) {
+  const formattedQuery = query.split(' ').join('+').split(',').join();
+  return function(dispatch) {
+    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedQuery}&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE`).then(
+      response => response.json(),
+      error => console.log("FAIL", error)
+    ).then(function(geodata) {
+      if(geodata.results) {
+        const results = geodata.results[0].geometry.location;
+        dispatch(getUserGeo(results, query));
+      }
+    })
+  }
+}
+
+export function getLiftieResortData(fullList, geoCoords, distanceInput, liftStatusInput) {
   return function (dispatch){
+    dispatch(refreshFilteredList());
     const filteredList = [];
     fullList.forEach((resortInList, index) => {
       let distance = calculateDistance(geoCoords.lat, geoCoords.lng, resortInList.ll[1], resortInList.ll[0], "M");
-      if (distance < 100) {
+      if (distanceInput === "no-limit") {
+        filteredList.push(resortInList);
+      } else if (distance < parseInt(distanceInput)) {
         filteredList.push(resortInList);
       }
     });
@@ -88,78 +91,46 @@ export function getLiftieResortData(fullList, geoCoords) {
         error => console.log("FAIL", error)
         ).then(function(resortData) {
           if(resortData.id) {
-            dispatch(getLiftieResort(resortData));
+            console.log(liftStatusInput)
+            if(liftStatusInput === "open"  && resortData.lifts.stats.percentage.closed !== 100 && resortData.lifts.stats.percentage.scheduled !== 100){
+              var x = fetchResortPlaces(resortData);
+              x(dispatch)
+            } else if (liftStatusInput === "all") {
+              var x = fetchResortPlaces(resortData);
+              x(dispatch)
+            }
         }
       });
     });
   }
 }
 
-export function getUserGeoCode(query) {
-  const formattedQuery = query.split(' ').join('+');
-  return function(dispatch) {
-    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedQuery}&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE`).then(
-      response => response.json(),
-      error => console.log("FAIL", error)
-    ).then(function(geodata) {
-      console.log(geodata)
-      if(geodata.results) {
-        const results = geodata.results[0].geometry.location;
-        dispatch(getUserGeo(results));
-      }
-    })
-  }
-}
-// query for parameter when search added
-export function fetchResorts() {
+export function fetchResortPlaces(resortFromLiftie) {
   return function (dispatch) {
-
-    // const location = query;
-    // dispatch(findResortsByLoc(location));
-
-    return fetch('https://api.weatherunlocked.com/api/snowreport/333005?app_id=8ff7c2f3&app_key=0dca412f784bd9bf44a313a9c2110699').then(
+    let formattedPlaceName = resortFromLiftie.name.split(' ').join('+');
+    return fetch(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${formattedPlaceName}&inputtype=textquery&locationbias=point:${resortFromLiftie.ll[1]},${resortFromLiftie.ll[0]}&fields=formatted_address,rating,photos&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE`).then(
       response => response.json(),
       error => console.log("FAIL", error)
-    ).then(function(data) {
-
-      if (data.resortname) {
-        const resort = data;
-        fetchResortPlacesData(dispatch);
-        fetchLiftieInfo(dispatch);
-        dispatch(getResortsByLoc(resort));
+    ).then(function(placesResponse) {
+      if(placesResponse.candidates) {
+        let combinedResponses = Object.assign({}, resortFromLiftie, placesResponse.candidates[0]);
+        var y = fetchResortPlacesPhoto(combinedResponses)
+        y(dispatch);
       }
     })
   }
 }
 
-export function fetchLiftieInfo(dispatch) {
-  return fetch('https://liftie.info/api/resort/courchevel').then(
-    response => response.json(),
-    error => console.log("Fail", error)
-  ).then(function(liftieData) {
-  })
-}
-
-export function fetchResortPlacesData(dispatch) {
-  return fetch('https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Courchevel%20France&inputtype=textquery&fields=photos,rating,geometry,name,place_id,formatted_address&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE&').then(
-    response => response.json(),
-    error => console.log("FAIL", error)
-  ).then(function(placesData) {
-    if(placesData.candidates) {
-      fetchResortPlacesPhoto(placesData.candidates[0].photos[0].photoreference, dispatch);
-      dispatch(getPlaceInfo(placesData.candidates));
-    }
-  });
-}
-
-export function fetchResortPlacesPhoto(photoId, dispatch) {
-  return fetch('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CmRaAAAA7l6BOtpmklpsR15Oov-pM0rZgmCVpRFUwsgwldjpYmFnh2TF6R-rRVu2YCA5HmWKMrS7_If2J7zxBtauDCoSsPoj4RJdm3L0AzagOy4pncmH30_axiKB3T2-sdzBtBFPEhABpa-x53axODzIVL30qcHvGhSc2mxTLw5KMiCoI9qD6a--kRl3Dg&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE').then(
+export function fetchResortPlacesPhoto(combinedResponses) {
+  return function (dispatch){
+  return fetch(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${combinedResponses.photos[0].photo_reference}&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE`).then(
     response => response.blob(),
     error => console.log("FAIL", error)
   ).then(function(image) {
     if (image) {
       let blobUrl = URL.createObjectURL(image);
-      dispatch(getPlacePhotoURL(blobUrl));
+      let finalCombination = Object.assign({}, combinedResponses, {photoLocalPath: blobUrl})
+      dispatch(getLiftieResort(finalCombination))
     }
-  })
+  })}
 }
