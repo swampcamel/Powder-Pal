@@ -21,14 +21,53 @@
 
 .location-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 80%;
   padding: 12px 0;
+  margin: 0 auto;
+}
+
+.lift-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.first-col-wrapper, .second-col-wrapper {
+  width: 85%
+}
+
+.detail-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.detail-data {
+  font-size: 18px;
+}
+
+.temp-snow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.distance-info {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.lift-ratings-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .star-rating-outer {
-
+  margin-top: 15px;
   position: relative;
 }
 
@@ -40,4 +79,25 @@
   overflow: hidden;
   width: 0;
   color: #f8ce0b;
+}
+
+.open-lifts {
+  color: #25D431;
+}
+
+.closed-lifts {
+  color: #E82C0C;
+}
+
+.open-lifts, .closed-lifts {
+  font-size: 22px;
+  line-height: 24px;
+}
+
+.resort-image {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 350px;
+  max-height: 200px;
 }

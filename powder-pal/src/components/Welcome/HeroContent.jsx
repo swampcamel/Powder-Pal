@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom'
 import {getUserGeoCode} from './../../actions';
 import {connect} from 'react-redux';
 import './HeroContent.scss';
+import {Icon} from 'react-materialize'
 
 class HeroContent extends Component {
   constructor(props) {
@@ -22,12 +23,13 @@ class HeroContent extends Component {
     <div className="hero-content">
       <div className="hero-content-blurb">
         <h3>You only get this chance one season a year.</h3>
+        <hr/>
         <h2>Get out there.</h2>
       </div>
       <div className="hero-content-search">
         <Link to='/query'>
         <div className="search-icon">
-          Icon
+          <Icon small>search</Icon>
         </div>
         </Link>
         <div className="search-input">

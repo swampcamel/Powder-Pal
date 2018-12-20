@@ -4,7 +4,15 @@
 .custom-nav {
   position: fixed;
   nav {
+    .brand-logo {
+      font-size: 32px;
+      text-shadow: 2px 2px 1px rgba(0,0,0, 0.4)
+    }
     box-shadow: none;
+    padding-left: 32px;
+    a {
+      font-size: 24px;
+    }
   }
 }
 

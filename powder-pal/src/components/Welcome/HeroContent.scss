@@ -4,7 +4,6 @@
   top: 50%;
   left: 25%;
   transform: translate(-50%, -50%);
-  border: 1px solid red;
 }
 
 .hero-content-blurb, .hero-content-search {
@@ -17,8 +16,17 @@
 .hero-content-blurb {
   background-color: #0086E0;
   border-radius: 42px;
-  padding: 2%;
+  padding: 4%;
   text-align: center;
+  h2 {
+    font-size: 36px;
+  }
+  h3 {
+    font-size: 28px;
+  }
+  hr {
+    margin: 20px auto;
+  }
 }
 
 .hero-content-search {
@@ -26,9 +34,9 @@
   background-color: #45A5E5;
   display: flex;
   align-items: center;
+  border-radius: 18px;
   .search-icon, .search-input {
-    border: solid 1px blue;
-    margin: 0;
+    margin: 0 12px;
     padding: 2%;
   }
   .search-input {
