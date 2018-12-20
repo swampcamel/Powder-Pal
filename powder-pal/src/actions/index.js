@@ -13,9 +13,10 @@ export const getLiftieInfo = (liftieData) => ({
   liftieData: liftieData
 })
 
-export const getUserGeo = (userGeo) => ({
+export const getUserGeo = (userGeo, query) => ({
   type: types.GET_USER_GEO,
-  userGeo: userGeo
+  userGeo: userGeo,
+  query: query
 })
 
 export const getLiftieResort = (liftieResortInfo) => ({
@@ -26,15 +27,6 @@ export const getLiftieResort = (liftieResortInfo) => ({
 export const refreshFilteredList = () => ({
   type: types.REFRESH_FILTERED_RESULTS
 })
-
-export function getResortListSnapshot() {
-  return function (dispatch) {
-  resortList.once('value').then(function(snapshot) {
-    const resortSnapshot = snapshot.val();
-    dispatch(getLiftieInfo(resortSnapshot))
-  })}
-}
-
 
 export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
   if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -55,6 +47,29 @@ export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
     if (unit=="K") { dist = dist * 1.609344 }
     if (unit=="N") { dist = dist * 0.8684 }
     return Math.round(dist);
+  }
+}
+
+export function getResortListSnapshot() {
+  return function (dispatch) {
+  resortList.once('value').then(function(snapshot) {
+    const resortSnapshot = snapshot.val();
+    dispatch(getLiftieInfo(resortSnapshot))
+  })}
+}
+
+export function getUserGeoCode(query) {
+  const formattedQuery = query.split(' ').join('+').split(',').join();
+  return function(dispatch) {
+    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedQuery}&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE`).then(
+      response => response.json(),
+      error => console.log("FAIL", error)
+    ).then(function(geodata) {
+      if(geodata.results) {
+        const results = geodata.results[0].geometry.location;
+        dispatch(getUserGeo(results, query));
+      }
+    })
   }
 }
 
@@ -105,22 +120,6 @@ export function fetchResortPlaces(resortFromLiftie) {
     })
   }
 }
-
-export function getUserGeoCode(query) {
-  const formattedQuery = query.split(' ').join('+').split(',').join();
-  return function(dispatch) {
-    return fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${formattedQuery}&key=AIzaSyAWV1qRc5xLad5NRq3NdE-8lHLTRVkDsuE`).then(
-      response => response.json(),
-      error => console.log("FAIL", error)
-    ).then(function(geodata) {
-      if(geodata.results) {
-        const results = geodata.results[0].geometry.location;
-        dispatch(getUserGeo(results));
-      }
-    })
-  }
-}
-
 
 export function fetchResortPlacesPhoto(combinedResponses) {
   return function (dispatch){

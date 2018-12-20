@@ -20,7 +20,7 @@ class SearchSidebar extends Component {
               this.props.dispatch(getLiftieResortData(this.props.data.liftieData, this.props.data.userGeo, this.refs.distanceInput.state.value, this.refs.openStatusInput.state.value))
             })}}>
         <div className='location-query'>
-          <Input ref='locationInput' placeholder='Portland, OR'></Input>
+          <Input ref='locationInput' placeholder={this.props.data.query}></Input>
           <button type="submit">change?</button>
         </div>
       </form>
@@ -57,11 +57,13 @@ const mapStateToProps = state => {
       placePhotoURL: state.placePhotoURL,
       liftieData: state.liftieData,
       userGeo: state.userGeo,
-      filteredResults: state.filteredResults
+      filteredResults: state.filteredResults,
+      query: state.query
     };
   } else {
       data = {
-        liftieData: state.liftieData
+        liftieData: state.liftieData,
+        query: state.query
       }
     }
 

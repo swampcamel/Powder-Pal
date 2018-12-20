@@ -25,7 +25,8 @@ const appReducer = (state = {filteredResults: []}, action) => {
     case types.GET_USER_GEO:
       newState = Object.assign({}, state, {
         isFetching: false,
-        userGeo: action.userGeo
+        userGeo: action.userGeo,
+        query: action.query
       });
       return newState;
 
