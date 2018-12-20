@@ -55,9 +55,7 @@ const appReducer = (state = {filteredResults: []}, action) => {
         filteredResults: [...state.filteredResults, action.liftieResortInfo]
       });
       return newState;
-
-    
-
+      
     default:
       return state;
   }
