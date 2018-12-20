@@ -28,6 +28,11 @@ export const refreshFilteredList = () => ({
   type: types.REFRESH_FILTERED_RESULTS
 })
 
+export const selectResort = (selectedResort) => ({
+  type: types.SELECT_RESORT,
+  selectedResort: selectedResort
+})
+
 export function calculateDistance(lat1, lon1, lat2, lon2, unit) {
   if ((lat1 == lat2) && (lon1 == lon2)) {
     return 0;

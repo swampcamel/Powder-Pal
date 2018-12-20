@@ -1,7 +1,7 @@
 import constants from './../constants';
 const {types} = constants;
 
-const appReducer = (state = {filteredResults: []}, action) => {
+const appReducer = (state = {filteredResults: [], selectedResort: {}}, action) => {
   let newResorts;
   let newState;
   let newPlaceInfo;
@@ -42,6 +42,12 @@ const appReducer = (state = {filteredResults: []}, action) => {
         filteredResults: []
       });
       return newState;
+
+    case types.SELECT_RESORT:
+    newState = Object.assign({}, state, {
+      selectedResort: action.selectedResort
+    });
+    return newState;
 
     default:
       return state;
