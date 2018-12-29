@@ -9,28 +9,41 @@ Ski Resort Companion App
 
 Powder Pal is an interface that gives you real-time views of snow reports for ski resorts in your areas, lift deals you can purchase in advance and provide messaging for riders and drivers in your area looking to visit the same ski resort as you in order to promote carpooling, group deals and creating new friendships.
 
-### List the absolute minimum features the project requires to meet this purpose or goal:
+### Basic Development Specs:
 
-- Enter a location and return a list of ski resorts with snow report information near that location.
+- Enter a location and return a list of ski resorts with snow report information near that location (completed).
 - Create and log into the site with a profile
 - Post a message offering or looking for a ride to the ski resort.
 
-### What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
+### Resources
 
  - React, Create React App, Redux, React-Router, React-Materialize
- - Firebase, Google Maps API, WeatherUnlocked API
+ - Firebase, Google Geolocation API, Google Places API, Liftie.info API
  - oAuth support, potentially will integrate other packages for messaging
 
-### If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
+## Perspective
 
-- Show what lifts are running at the resort that day
-- Show resort maps
-- Create rating system for users, resorts and runs.
+Powder Pal was envisioned originally as a way to car pool, but as I thought about potential users, I felt like people would rarely use the system to get or provide rides.  I decided the development plan didn't need to change to adjust to that as the system could still be used to help people negotiate meeting up at the resort to get discounted group deals.
 
-### What additional tools, frameworks, libraries, APIs, or other resources will these additional features require?
+#### Who is this app for?
 
-- Liftie.info npm package
-- Ski Maps API
-- TBD
+Anyone who loves to ski but doesn't know enough people to save with group discounts every time they go.
 
-Good morning!
+### Concept
+
+A user is greeted with a landing page that prompts for their location.  The query is sent to Google's Geolocation API which returns the user's coordinates.  These coordinate's are checked against a list stored in Firebase of the top 120+ resorts in the world and their coordinates using a routine developed by GeoDataSource.  By default, the list is filtered down to resorts within 300 miles of the user.  This new filtered list is dispatched and a chain of API calls are made to Liftie.info and Google Places to gather current information about the resorts presented as well as images.  A user can click on a resort to view finer details.
+
+In further development, the resort-specific view will be the area that users can post for meeting up at a resort on a given day.
+
+## Setup/Installation
+
+```$git clone https://github.com/swampcamel/chatnoir
+$npm i
+$npm run start
+```
+
+### Support & Contact
+
+Please contact dmacebeta@gmail.com with any questions or requests.
+
+## License This software is licensed under the MIT License.
